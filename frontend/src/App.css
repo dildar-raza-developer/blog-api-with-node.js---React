@@ -1,0 +1,473 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    font-family: 'DM Sans', sans-serif;
+    color: #182230;
+    background: #f7f9fc;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navbar {
+    height: 82px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom: 1px solid #e8edf5;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    color: #182230;
+}
+
+.brand-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: #e8efff;
+    color: #356cf6;
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.brand strong,
+.brand small {
+    display: block;
+}
+
+.brand strong {
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+}
+
+.brand small {
+    color: #7b8798;
+    margin-top: 3px;
+    font-size: 12px;
+}
+
+.home-btn,
+.back-btn {
+    padding: 10px 16px;
+    border: 1px solid #dfe6f0;
+    border-radius: 9px;
+    background: white;
+    color: #344054;
+    font-weight: 600;
+}
+
+.home-btn:hover,
+.back-btn:hover {
+    background: #eef3ff;
+    border-color: #b9ccff;
+}
+
+.container {
+    max-width: 1180px;
+    width: 90%;
+    margin: auto;
+    min-height: 65vh;
+}
+
+.hero {
+    text-align: center;
+    padding: 75px 15px 60px;
+    background: radial-gradient(
+        ellipse at top,
+        #e8efff 0%,
+        #f7f9fc 72%
+    );
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 7px 13px;
+    background: #e2eaff;
+    color: #356cf6;
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    letter-spacing: -1.8px;
+    margin: 20px 0 12px;
+    color: #142747;
+}
+
+.hero p {
+    color: #6c7a90;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 520px;
+    margin: auto;
+}
+
+.blog-section {
+    padding: 35px 0 75px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 25px;
+    margin: 0 0 7px;
+}
+
+.section-heading p {
+    color: #7b8798;
+    margin: 0;
+    font-size: 14px;
+}
+
+.post-count {
+    color: #536780;
+    background: white;
+    border: 1px solid #e5eaf2;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.post-card {
+    background: #fff;
+    border: 1px solid #e8edf5;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #20385b08;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #20385b12;
+}
+
+.card-art {
+    height: 155px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #dce8ff, #eae5ff);
+}
+
+.card-art span {
+    width: 75px;
+    height: 75px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: #ffffffc9;
+    color: #4169e1;
+    font-size: 43px;
+    font-weight: 700;
+}
+
+.post-card:nth-child(3n + 2) .card-art {
+    background: linear-gradient(135deg, #d8f5e8, #d9edff);
+}
+
+.post-card:nth-child(3n) .card-art {
+    background: linear-gradient(135deg, #f3e0ff, #dfe7ff);
+}
+
+.card-body {
+    padding: 22px;
+}
+
+.category {
+    display: inline-block;
+    color: #4b53bf;
+    background: #eeedff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.card-body h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 19px;
+    margin: 15px 0 9px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.description {
+    color: #778397;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.card-footer {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid #edf0f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #68758a;
+    font-size: 12px;
+}
+
+.avatar {
+    width: 31px;
+    height: 31px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #e8efff;
+    color: #356cf6;
+    font-weight: 700;
+}
+
+.read-btn,
+.primary-btn {
+    border: none;
+    border-radius: 8px;
+    background: #356cf6;
+    color: white;
+    padding: 10px 13px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.read-btn:hover,
+.primary-btn:hover {
+    background: #2454cf;
+    transform: translateY(-1px);
+}
+
+.read-btn span {
+    margin-left: 5px;
+}
+
+.detail-card {
+    max-width: 850px;
+    margin: 45px auto 70px;
+    padding: clamp(22px, 5vw, 48px);
+    background: white;
+    border: 1px solid #e8edf5;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px #20385b08;
+}
+
+.detail-card > h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+    margin: 20px 0;
+}
+
+.detail-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.detail-author strong,
+.detail-author small {
+    display: block;
+}
+
+.detail-author small {
+    color: #7b8798;
+    margin-top: 4px;
+}
+
+.detail-description {
+    color: #68758a;
+    font-size: 18px;
+    line-height: 1.8;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.article-content {
+    padding: 15px 0 30px;
+}
+
+.article-content h2 {
+    font-family: 'Manrope', sans-serif;
+}
+
+.article-content p {
+    color: #526075;
+    font-size: 16px;
+    line-height: 2;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.article-bottom {
+    border-top: 1px solid #edf0f5;
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: #7b8798;
+    font-size: 13px;
+}
+
+.status,
+.empty-state,
+.error-box {
+    text-align: center;
+    padding: 55px 20px;
+    color: #68758a;
+}
+
+.spinner {
+    width: 35px;
+    height: 35px;
+    border: 3px solid #dce5fa;
+    border-top-color: #356cf6;
+    border-radius: 50%;
+    margin: auto;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-box {
+    background: white;
+    border: 1px solid #ffe0e0;
+    border-radius: 14px;
+    margin: 35px 0;
+}
+
+.error-box h3 {
+    color: #b42318;
+}
+
+.error-box p {
+    overflow-wrap: anywhere;
+}
+
+.footer {
+    padding: 35px 15px;
+    background: #fff;
+    border-top: 1px solid #e8edf5;
+    text-align: center;
+}
+
+.footer h3 {
+    font-family: 'Manrope', sans-serif;
+    margin: 0 0 8px;
+}
+
+.footer p,
+.footer span {
+    color: #7b8798;
+    font-size: 13px;
+}
+
+.back-btn {
+    margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .navbar {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        padding: 50px 10px 40px;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .card-art {
+        height: 135px;
+    }
+
+    .brand strong {
+        font-size: 14px;
+    }
+
+    .brand small {
+        font-size: 10px;
+    }
+
+    .article-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

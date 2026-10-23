@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": 1,
+    "title": "Learn React Basics",
+    "slug": "learn-react-basics",
+    "description": "Start learning React step by step.",
+    "content": "React is a JavaScript library used to build user interfaces. Components, props, and state are important React concepts.",
+    "author": "Dildar",
+    "category": "React"
+  },
+  {
+    "id": 2,
+    "title": "Introduction to Node.js",
+    "slug": "introduction-to-nodejs",
+    "description": "Learn how Node.js works.",
+    "content": "Node.js allows JavaScript to run outside the browser. We can use Express to create APIs and connect them to frontend applications.",
+    "author": "Dildar",
+    "category": "Node.js"
+  },
+  {
+    "id": 3,
+    "title": "Getting Started with Express",
+    "slug": "getting-started-with-express",
+    "description": "Build your first Express API.",
+    "content": "Express is a Node.js framework that makes it easier to create routes, handle requests, and return JSON responses.",
+    "author": "Dildar",
+    "category": "Backend"
+  }
+]
