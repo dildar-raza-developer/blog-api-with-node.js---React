@@ -7,6 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Temporary blog data
 let products = [
     {
         id: 1,
@@ -28,6 +29,19 @@ let products = [
     }
 ];
 
+// Home route: test deployment
+app.get("/", (req, res) => {
+    res.json({
+        message: "Blog API is running successfully!",
+        endpoints: [
+            "/api/posts",
+            "/api/posts/learn-react",
+            "/products"
+        ]
+    });
+});
+
+// Authentication middleware
 const auth = (req, res, next) => {
     const token = req.headers.authorization;
 
@@ -40,25 +54,35 @@ const auth = (req, res, next) => {
     });
 };
 
-// POST: Add blog from Postman
+// POST: Add blog
 app.post("/Adddata", auth, (req, res) => {
+    const { title, description, content, author, category } = req.body;
+
+    if (!title || !description || !content || !author || !category) {
+        return res.status(400).json({
+            message: "Please provide all required fields"
+        });
+    }
+
+    const slug = title
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+
     const newProduct = {
         id: Date.now(),
-        title: req.body.title,
-        slug: req.body.title
-            .toLowerCase()
-            .trim()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/^-|-$/g, ""),
-        description: req.body.description,
-        content: req.body.content,
-        author: req.body.author,
-        category: req.body.category
+        title,
+        slug,
+        description,
+        content,
+        author,
+        category
     };
 
     products.push(newProduct);
 
-    res.status(201).json({
+    return res.status(201).json({
         message: "Blog added successfully",
         data: newProduct
     });
@@ -66,9 +90,8 @@ app.post("/Adddata", auth, (req, res) => {
 
 // GET: All blogs with pagination
 app.get("/api/posts", (req, res) => {
-    const page = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 3;
-
+    const page = Math.max(1, Number(req.query.page) || 1);
+    const limit = Math.max(1, Number(req.query.limit) || 3);
     const start = (page - 1) * limit;
 
     res.json({
@@ -99,6 +122,12 @@ app.get("/products", (req, res) => {
     res.status(200).json(products);
 });
 
-app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
-});
+// Export app for Vercel
+
+if (require.main === module) {
+    app.listen(process.env.PORT || 3000, () => {
+        console.log("Server is running");
+    });
+}
+
+module.exports = app;
